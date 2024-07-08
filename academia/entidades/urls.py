@@ -4,8 +4,8 @@ from entidades.views import *
 
 urlpatterns = [
     path('', home, name="home"),
-    path('cursos/', cursos, name="cursos"),
-    path('profesores/', profesores, name="profesores"),
+    path('hosts/', hosts, name="hosts"),
+    path('vlans/', vlans, name="vlans"),
     path('estudiantes/', estudiantes, name="estudiantes"),
     path('entregables/', entregables, name="entregables"),
 ]

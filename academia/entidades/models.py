@@ -3,22 +3,12 @@ from django.db import models
 # Create your models here.
 
 # Modelo de negocio de la Aplicacion
-class Curso(models.Model):
-    nombre = models.CharField(max_length=50)
-    comision = models.IntegerField()
+class Hosts(models.Model):
+    host_name = models.CharField(max_length=50)
+    host_ip = models.FloatField()
+    host_vlan = models.IntegerField()
 
-class Estudiante(models.Model):
-    nombre = models.CharField(max_length=60)
-    apellido = models.CharField(max_length=60)
-    email = models.EmailField()
-
-class Profesor(models.Model):
-    nombre = models.CharField(max_length=60)
-    apellido = models.CharField(max_length=60)
-    email = models.EmailField()
-    profesion = models.CharField(max_length=50)
-
-class Entregable(models.Model):
-    nombre = models.CharField(max_length=50)
-    fechaEntrega = models.DateField()
-    entregado = models.BooleanField()
+class Vlans(models.Model):
+    vlan_nombre = models.CharField(max_length=60)
+    vlan_tag = models.IntegerField()
+    vlan_desc = models.CharField(max_length=60)

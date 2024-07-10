@@ -12,3 +12,9 @@ class Vlans(models.Model):
     vlan_nombre = models.CharField(max_length=60)
     vlan_tag = models.IntegerField()
     vlan_desc = models.CharField(max_length=60)
+
+class Owners(models.Model):
+    resposables = models.CharField(max_length=60)
+    proyecto = models.CharField(max_length=60)
+    contacto = models.CharField(max_length=60)
+

@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from .models import *
 
+from .forms import *
+
 # Create your views here.
 def home(request):
     return render(request, "entidades/index.html")
@@ -13,8 +15,25 @@ def vlans(request):
     contexto = {"vlans": Vlans.objects.all()}
     return render(request, "entidades/vlans.html", contexto)
 
-def estudiantes(request):
-    return render(request, "entidades/estudiantes.html")
+def owners(request):
+    contexto = {"vlans": Owners.objects.all()}
+    return render(request, "entidades/owners.html", contexto)
 
-def entregables(request):
-    return render(request, "entidades/entregables.html")
+def acerca(request):
+    return render(request, "entidades/acerca.html")
+
+def hostsForm(request):
+    if request.method == "POST":
+        miForm = HostsForm(request.POST)
+        if miForm.is_valid():
+            host_name_host = miForm.cleaned_data.get("host_name")
+            host_ip_host = miForm.cleaned_data.get("host_ip")
+            host_vlan_host = miForm.cleaned_data.get("host_vlan")
+            hosts = Hosts(host_name=host_name_host, host_ip=host_ip_host, host_vlan=host_vlan_host )
+            hosts.save()
+            contexto = {"hosts": Hosts.objects.all() }
+            return render(request, "entidades/hosts.html", contexto)
+    else:
+        miForm = HostsForm()
+    
+    return render(request, "entidades/hostsForm.html", {"form": miForm})

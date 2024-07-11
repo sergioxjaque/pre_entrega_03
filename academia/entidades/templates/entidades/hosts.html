@@ -3,15 +3,17 @@
 
 <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
     <li class="nav-item active"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
-   
+    
 </ul>
 
 
 
 {% block titulo %}
  <h1 class="mt-4"> Hosts </h1>
- <h5 class="mt-4"> Listar, editar IP/Hostname </h5>
-
+ 
+ <form action= "{% url 'hostsForm' %}">
+    <input type="submit" value="Cargar Hosts" />
+ </form>
 {% endblock titulo %}
 
 {% block contenido %}

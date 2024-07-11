@@ -5,7 +5,7 @@ from django.db import models
 # Modelo de negocio de la Aplicacion
 class Hosts(models.Model):
     host_name = models.CharField(max_length=50)
-    host_ip = models.FloatField()
+    host_ip = models.CharField(max_length=18)
     host_vlan = models.IntegerField()
 
 class Vlans(models.Model):

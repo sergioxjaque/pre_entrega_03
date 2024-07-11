@@ -11,5 +11,7 @@ urlpatterns = [
     path('acerca/', acerca, name="acerca"),
 
     path('hostsForm/', hostsForm, name="hostsForm"),
+    path('buscarHosts/', buscarHosts, name="buscarHosts"),
+    path('listarHosts/', listarHosts, name="listarHosts"),
    
 ]

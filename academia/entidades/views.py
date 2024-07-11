@@ -37,3 +37,17 @@ def hostsForm(request):
         miForm = HostsForm()
     
     return render(request, "entidades/hostsForm.html", {"form": miForm})
+
+
+def buscarHosts(request):
+    return render(request, "entidades/buscarHosts.html")
+
+def listarHosts(request):
+    if request.GET["buscar"]:
+        patron = request.GET["buscar"]
+        hosts = Hosts.objects.filter(host_name__icontains=patron)
+        contexto = {'hosts': hosts}    
+    else:
+        contexto = {'hosts': Hosts.objects.all()}
+        
+    return render(request, "entidades/hosts.html", contexto)
